@@ -8,5 +8,13 @@ package q1
 //Você pode retornar a resposta em qualquer ordem.
 
 func TwoSum(nums []int, target int) []int {
+	m := make(map[int]int)
+	for i, num := range nums {
+		complement := target - num
+		if _, ok := m[complement]; ok {
+			return []int{m[complement], i}
+		}
+		m[num] = i
+	}
 	return nil
 }
